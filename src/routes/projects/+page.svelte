@@ -1,7 +1,12 @@
 <script>
+    //components
     import ContactLinks from "../../lib/components/ContactLinks.svelte";
     import Footer from "../../lib/components/Footer.svelte";
     import Nav from "../../lib/components/Nav.svelte";
+
+    //data prop from +page.js
+    export let data;
+    const { major, minor } = data;
 </script>
 
 <Nav />
@@ -12,8 +17,60 @@
         <h1>Projects</h1>
     </section>
 
-    <section class="caseStudies">
-        <h2>Case Studies</h2>
+    <section class="majorProjects">
+        <h2>Major</h2>
+        {#each Object.keys(major) as project}
+            <div class="details">
+                <h2>{major[project].meta.title}</h2>
+
+                <div class="content">{@html major[project].html}</div>
+
+                <div class="techStack">
+                    <h3>Tech Stack</h3>
+                    <ul>
+                        {#each major[project].meta.techUsed as tech}
+                            <li>{tech}</li>
+                        {/each}
+                    </ul>
+                </div>
+
+                <h3>Related Articles</h3>
+                <div class="relatedArticles">
+                    {#each major[project].meta.relatedArticles as article}
+                        <a href="/">{article}</a>
+                    {/each}
+                </div>
+            </div>
+        {/each}
+    </section>
+
+    <section class="minorProjects">
+        <h2>Minor</h2>
+        {#each Object.keys(minor) as project}
+            <div class="details">
+                <h2>{minor[project].meta.title}</h2>
+
+                <div class="content">{@html minor[project].html}</div>
+
+                <div class="techStack">
+                    <h3>Tech Stack</h3>
+                    <ul>
+                        {#each minor[project].meta.techUsed as tech}
+                            <li>{tech}</li>
+                        {/each}
+                    </ul>
+                </div>
+
+                {#if minor[project].meta.relatedArticles}
+                    <h3>Related Articles</h3>
+                    <div class="relatedArticles">
+                        {#each minor[project].meta.relatedArticles as article}
+                            <a href="/">{article}</a>
+                        {/each}
+                    </div>
+                {/if}
+            </div>
+        {/each}
     </section>
 
     <section class="feedback">
@@ -31,7 +88,7 @@
     }
 
     section {
-        height: 30vh;
+        min-height: 30vh;
         margin-bottom: 2rem;
         padding: 1rem;
         border-radius: 8px;
@@ -45,13 +102,8 @@
         color: green;
     }
 
-    p {
-        font-size: 1rem;
-        line-height: 1.6;
-    }
-
     .projects {
-        height: auto;
+        min-height: auto;
         text-align: center;
         background-color: orange;
     }
@@ -61,5 +113,30 @@
         margin: 0;
         padding: 2rem 0;
         color: white;
+    }
+
+    .details {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin: 1rem 0;
+        padding: 1rem;
+        background-color: lightblue;
+        border-radius: 8px;
+    }
+
+    .content {
+        width: 60%;
+        margin: 1rem 0;
+        padding: 1rem;
+        background-color: white;
+        border-radius: 8px;
+        text-align: center;
+    }
+
+    .relatedArticles {
+        display: flex;
+        width: 80%;
+        justify-content: space-between;
     }
 </style>

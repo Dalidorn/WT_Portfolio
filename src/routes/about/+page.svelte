@@ -6,7 +6,7 @@
 
     // Data prop from +page.js
     export let data;
-    const { metadata, html } = data;
+    const { meta, html } = data;
 </script>
 
 <Nav />
@@ -18,7 +18,7 @@
     </section>
 
     <section class="test">
-        <h2>{metadata.title}</h2>
+        <h2>{meta.title}</h2>
 
         <div class="content">{@html html}</div>
     </section>
@@ -66,7 +66,7 @@
     .about {
         background-color: green;
         text-align: center;
-        height:auto;
+        height: auto;
     }
 
     .about h1 {

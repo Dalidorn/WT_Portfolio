@@ -14,5 +14,5 @@ export function parseMarkdown(markdown) {
     const html = marked(content);
 
 
-    return { metadata: data, html };
+    return { meta: data, html };
 }
