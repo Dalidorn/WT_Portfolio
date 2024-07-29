@@ -22,3 +22,52 @@
         </p>
     </div>
 </footer>
+
+<style>
+    footer {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        background-color: gray;
+        color: white;
+        padding: 1rem;
+        border-top: 1px solid black;
+    }
+
+    .footerLinks {
+        display: flex;
+        justify-content: center;
+        list-style: none;
+        padding: 0;
+        margin: 0 0 1rem 0;
+    }
+
+    .footerLinks li {
+        margin: 0 1.5rem;
+    }
+
+    .footerLinks a {
+        color: white;
+        text-decoration: none;
+    }
+
+    .footerLinks a:hover {
+        text-decoration: underline;
+        color: green;
+    }
+
+    .copyright {
+        text-align: center;
+        font-size: 0.875rem;
+        width: 70%;
+    }
+
+    .copyright a {
+        color: white;
+    }
+
+    .copyright a:hover {
+        text-decoration: underline;
+        color: green;
+    }
+</style>
