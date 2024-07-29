@@ -1,6 +1,7 @@
 <script>
     // Components
     import ContactLinks from "$lib/components/ContactLinks.svelte";
+    import Form from "$lib/components/Form.svelte";
     import Footer from "$lib/components/Footer.svelte";
     import Nav from "$lib/components/Nav.svelte";
 
@@ -33,9 +34,10 @@
         <!-- Personal story content here -->
     </section>
 
-    <section class="other">
-        <h2>Other Stuff</h2>
-        <!-- Other content here -->
+    <section class="contact">
+        <h2>Contact Form</h2>
+        
+        <Form mode="contact" />
     </section>
 </main>
 
@@ -49,7 +51,7 @@
     }
 
     section {
-        height: 30vh;
+        min-height: 30vh;
         margin-bottom: 2rem;
         padding: 1rem;
         border-radius: 8px;

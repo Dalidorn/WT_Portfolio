@@ -1,8 +1,9 @@
 <script>
     //components
-    import ContactLinks from "../../lib/components/ContactLinks.svelte";
-    import Footer from "../../lib/components/Footer.svelte";
-    import Nav from "../../lib/components/Nav.svelte";
+    import ContactLinks from "$lib/components/ContactLinks.svelte";
+    import Footer from "$lib/components/Footer.svelte";
+    import Form from "$lib/components/Form.svelte";
+    import Nav from "$lib/components/Nav.svelte";
 
     //data prop from +page.js
     export let data;
@@ -75,6 +76,8 @@
 
     <section class="feedback">
         <h2>Feedback Form</h2>
+
+        <Form />
     </section>
 </main>
 
